@@ -1,0 +1,21 @@
+How to compile the JPEG XT reference software with GNU-Make
+------------------------------------------------------------
+
+Open "Makefile.template". This is the topmost makefile that contains
+compiler and linker commands. Adapt this makefile to your environment,
+specifically edit in the "CXX" variable for the C++ compiler that
+currently selects GNU g++ version 4.7. Do NOT edit the "Makefile".
+
+To built the final distribution, use
+$ make final
+For a debug setup, run
+$ make debug
+The default make target is the "debug" target, so beware!
+
+Additional make targets can be obtained by
+
+$ make help
+
+
+
+
