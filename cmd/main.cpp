@@ -188,7 +188,7 @@ void PrintLicense(void)
 {
 
 #if ISO_CODE
-  printf(""
+  /*printf(""
          "This software module was originally contributed by the parties as\n"
          "listed below in the course of development of the ISO/IEC 18477 (JPEG\n"
          "XT) standard for validation and reference purposes:\n"
@@ -226,6 +226,8 @@ void PrintLicense(void)
          "OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
          "\n\n"
          );
+		 */
+	printf("JPEG modified v0.1 by PhuNM");
 #else
   printf(""
          "jpeg Copyright (C) 2012-2014 Thomas Richter, University of Stuttgart\n"

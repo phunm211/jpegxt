@@ -622,7 +622,10 @@ void EncodeC(const char *source,const char *ldrsource,const char *target,const c
             UBYTE *alphamem = NULL;
             if (mem) {
               bmm.bmm_pMemPtr      = mem + width * 8 * depth;
-              bmm.bmm_pLDRMemPtr   = ldrin?mem:NULL;
+            /* PhuNM fix issue of -ldr option affected to Q - 20190328 - Start*/
+             // bmm.bmm_pLDRMemPtr   = ldrin?mem:NULL;
+			  bmm.bmm_pLDRMemPtr = mem;
+			 /* PhuNM fix issue of -ldr option affected to Q - 20190328 - End*/
               bmm.bmm_ulWidth      = width;
               bmm.bmm_ulHeight     = height;
               bmm.bmm_usDepth      = depth;

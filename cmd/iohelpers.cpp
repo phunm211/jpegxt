@@ -108,7 +108,13 @@ bool ReadRGBTriple(FILE *in,int &r,int &g,int &b,double &y,int depth,int count,
           exit(20);
         }
       }
+	/* PhuNM fix from ITU 709 to 601 - 20190328 - Start*/
+	#if 0
       y  = (0.2126 * rf + 0.7152 * gf + 0.0722 * bf);
+	#else
+	  y = (0.2990 * rf + 0.5870 * gf + 0.1140 * bf);
+	#endif
+	/* PhuNM fix from ITU 709 to 601 - 20190328 - End*/
       r  = DoubleToHalf(rf);
       g  = DoubleToHalf(gf);
       b  = DoubleToHalf(bf);
@@ -131,7 +137,13 @@ bool ReadRGBTriple(FILE *in,int &r,int &g,int &b,double &y,int depth,int count,
         fprintf(stderr,"Error reading the source file\n");
         exit(20);
       }
+	  /* PhuNM fix from ITU 709 to 601 - 20190328 - Start*/
+#if 0
       y  = (0.2126 * r + 0.7152 * g + 0.0722 * b) / max;
+#else
+	  y = (0.2990 * r + 0.5870 * g + 0.1140 * b) / max;
+#endif
+	  /* PhuNM fix from ITU 709 to 601 - 20190328 - End*/
       if (xyz) {
         double rf,gf,bf;
         double xf = r,yf = g,zf = b;
@@ -146,7 +158,13 @@ bool ReadRGBTriple(FILE *in,int &r,int &g,int &b,double &y,int depth,int count,
         if (r > max) r = max, warn = true;
         if (g > max) g = max, warn = true;
         if (b > max) b = max, warn = true;
+		/* PhuNM fix from ITU 709 to 601 - 20190328 - Start*/
+#if 0
         y  = (0.2126 * rf + 0.7152 * gf + 0.0722 * bf) / max;
+#else
+		y = (0.2990 * rf + 0.5870 * gf + 0.1140 * bf) / max;
+#endif
+		/* PhuNM fix from ITU 709 to 601 - 20190328 - End*/
       }
     }
   } else {
